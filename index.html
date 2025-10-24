@@ -6,125 +6,310 @@
   <title>Agency Online</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
-    body{background:#f5f5f5;color:#333;line-height:1.6;}
-    a{text-decoration:none;color:inherit;}
-    header{background:linear-gradient(135deg,#4A90E2,#8E44AD);color:white;padding:80px 20px 100px 20px;text-align:center;position:relative;overflow:hidden;background-attachment:fixed;}
-    header h1{font-size:3rem;margin-bottom:10px;animation:fadeInUp 1s ease forwards;}
-    header p{font-size:1.2rem;opacity:0.9;animation:fadeInUp 1.5s ease forwards;}
-    nav{display:flex;justify-content:center;gap:30px;margin-top:30px;font-weight:bold;animation:fadeInUp 2s ease forwards;}
-    nav a:hover{text-decoration:underline;}
-    section{padding:80px 20px;max-width:1200px;margin:auto;opacity:0;transform:translateY(50px);transition:all 0.8s ease;}
-    section.visible{opacity:1;transform:translateY(0);}
-    h2{text-align:center;margin-bottom:60px;font-size:2.5rem;color:#4A90E2;}
-    .parallax{background-attachment:fixed;background-size:cover;background-position:center;color:white;padding:120px 20px;text-align:center;border-radius:20px;margin-bottom:60px;}
-    .parallax h2{color:white;}
-    .services{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}
-    .service-card{background:white;padding:40px 30px;border-radius:20px;width:300px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:transform 0.5s,box-shadow 0.5s;cursor:pointer;}
-    .service-card:hover{transform:translateY(-15px) rotate(-1deg);box-shadow:0 15px 35px rgba(0,0,0,0.2);}
-    .service-card h3{margin-bottom:20px;color:#8E44AD;font-size:1.5rem;}
-    .portfolio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
-    .portfolio img{width:100%;border-radius:20px;transition:transform 0.5s,box-shadow 0.5s;cursor:pointer;}
-    .portfolio img:hover{transform:scale(1.08) rotate(-1deg);box-shadow:0 15px 30px rgba(0,0,0,0.2);}
-    .testimonials{display:flex;flex-direction:column;gap:30px;align-items:center;}
-    .testimonial{background:rgba(142,68,173,0.9);color:white;padding:40px;border-radius:20px;max-width:600px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.15);transform:translateY(50px);opacity:0;transition:all 0.8s ease;}
-    .testimonial.visible{transform:translateY(0);opacity:1;}
-    .contact form{display:flex;flex-direction:column;gap:20px;max-width:500px;margin:auto;}
-    .contact input,.contact textarea{padding:18px;border-radius:12px;border:1px solid #ccc;font-size:1rem;width:100%;transition:border 0.3s,box-shadow 0.3s;}
-    .contact input:focus,.contact textarea:focus{border-color:#4A90E2;box-shadow:0 0 10px rgba(74,144,226,0.3);outline:none;}
-    .contact button{padding:18px;border:none;border-radius:12px;background:#8E44AD;color:white;font-size:1.2rem;cursor:pointer;transition:background 0.3s,transform 0.3s;}
-    .contact button:hover{background:#4A90E2;transform:scale(1.05);}
-    footer{background:#333;color:white;text-align:center;padding:40px 20px;}
-    @media(max-width:768px){nav{flex-direction:column;gap:20px;}}
-    @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #6C63FF, #FF6584);
+      color: white;
+      padding: 80px 20px 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-attachment: fixed; /* Parallax */
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      font-weight: bold;
+      animation: fadeInUp 2s ease forwards;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: 2.5rem;
+      color: #6C63FF;
+    }
+
+    /* Sezioni parallax */
+    .parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      border-radius: 20px;
+      margin-bottom: 60px;
+    }
+
+    .parallax h2 {
+      color: white;
+    }
+
+    /* Servizi */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.5s, box-shadow 0.5s;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-15px) rotate(-1deg);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .service-card h3 {
+      margin-bottom: 20px;
+      color: #FF6584;
+      font-size: 1.5rem;
+    }
+
+    /* Portfolio */
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .portfolio img {
+      width: 100%;
+      border-radius: 20px;
+      transition: transform 0.5s, box-shadow 0.5s;
+      cursor: pointer;
+    }
+
+    .portfolio img:hover {
+      transform: scale(1.08) rotate(-1deg);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Testimonianze */
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .testimonial {
+      background: rgba(108,99,255,0.9);
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+
+    .testimonial.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Contatti */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact input, .contact textarea {
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      width: 100%;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      border-color: #6C63FF;
+      box-shadow: 0 0 10px rgba(108,99,255,0.3);
+      outline: none;
+    }
+
+    .contact button {
+      padding: 18px;
+      border: none;
+      border-radius: 12px;
+      background: #FF6584;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .contact button:hover {
+      background: #6C63FF;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    @media(max-width:768px){
+      nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    /* Animazioni header */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Agency Online</h1>
-  <p>Creatività e professionalità per la tua presenza digitale</p>
-  <nav>
-    <a href="#services">Servizi</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#testimonials">Testimonianze</a>
-    <a href="#contact">Contatti</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header>
+    <h1>Agency Online</h1>
+    <p>Creatività e professionalità per la tua presenza digitale</p>
+    <nav>
+      <a href="#services">Servizi</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#testimonials">Testimonianze</a>
+      <a href="#contact">Contatti</a>
+    </nav>
+  </header>
 
-<section id="services" class="parallax" style="background-image: url('immagini/servizi_bg.jpg');">
-  <h2>I nostri Servizi</h2>
-  <div class="services">
-    <div class="service-card">
-      <h3>Online Advertising</h3>
-      <img src="immagini/servizio1.jpg" alt="Online Advertising" style="width:100%; border-radius:12px; margin-bottom:15px;">
-      <p>Creazione di campagne pubblicitarie efficaci per aumentare visibilità e conversioni del tuo business online.</p>
+  <!-- Servizi -->
+  <section id="services" class="parallax" style="background-image: url('https://via.placeholder.com/1600x900?text=Servizi');">
+    <h2>I nostri Servizi</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Online Advertising</h3>
+        <p>Campagne pubblicitarie mirate per raggiungere il tuo pubblico ideale e aumentare le conversioni.</p>
+      </div>
+      <div class="service-card">
+        <h3>Creazione Siti Web</h3>
+        <p>Design moderni e funzionali per siti web responsive, ottimizzati per ogni dispositivo.</p>
+      </div>
+      <div class="service-card">
+        <h3>Gestione Social Media</h3>
+        <p>Strategie efficaci per la gestione dei tuoi profili social e crescita della community.</p>
+      </div>
     </div>
-    <div class="service-card">
-      <h3>Creazione Siti Web</h3>
-      <img src="immagini/servizio2.jpg" alt="Creazione Siti Web" style="width:100%; border-radius:12px; margin-bottom:15px;">
-      <p>Siti web moderni, responsive e ottimizzati per ogni dispositivo, progettati per valorizzare la tua attività.</p>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="parallax" style="background-image: url('https://via.placeholder.com/1600x900?text=Portfolio');">
+    <h2>Portfolio</h2>
+    <div class="portfolio">
+      <img src="https://via.placeholder.com/400x300?text=Progetto+1" alt="Progetto 1">
+      <img src="https://via.placeholder.com/400x300?text=Progetto+2" alt="Progetto 2">
+      <img src="https://via.placeholder.com/400x300?text=Progetto+3" alt="Progetto 3">
+      <img src="https://via.placeholder.com/400x300?text=Progetto+4" alt="Progetto 4">
     </div>
-    <div class="service-card">
-      <h3>Gestione Profili Social</h3>
-      <img src="immagini/servizio3.jpg" alt="Gestione Profili Social" style="width:100%; border-radius:12px; margin-bottom:15px;">
-      <p>Gestione completa dei tuoi canali social con strategie mirate per crescere la community e l’engagement.</p>
+  </section>
+
+  <!-- Testimonianze -->
+  <section id="testimonials" class="parallax" style="background-image: url('https://via.placeholder.com/1600x900?text=Testimonianze');">
+    <h2>Testimonianze</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"Grazie ad Agency Online, la nostra presenza digitale è cresciuta incredibilmente in pochi mesi!"</p>
+        <strong>- Cliente Soddisfatto</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Professionali e creativi, hanno trasformato la nostra idea in un sito web straordinario."</p>
+        <strong>- Cliente Felice</strong>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="portfolio" class="parallax" style="background-image: url('immagini/portfolio_bg.jpg');">
-  <h2>Portfolio</h2>
-  <div class="portfolio">
-    <img src="immagini/portfolio1.jpg" alt="Progetto 1">
-    <img src="immagini/portfolio2.jpg" alt="Progetto 2">
-    <img src="immagini/portfolio3.jpg" alt="Progetto 3">
-    <img src="immagini/portfolio4.jpg" alt="Progetto 4">
-  </div>
-</section>
-
-<section id="testimonials" class="parallax" style="background-image: url('immagini/testimonianze_bg.jpg');">
-  <h2>Testimonianze</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      <img src="immagini/testimonianza1.jpg" alt="Cliente soddisfatto" style="width:80px; border-radius:50%; margin-bottom:15px;">
-      <p>"Grazie ad Agency Online, il nostro business è cresciuto incredibilmente!"</p>
-      <strong>- Cliente soddisfatto</strong>
-    </div>
-    <div class="testimonial">
-      <img src="immagini/testimonianza2.jpg" alt="Cliente felice" style="width:80px; border-radius:50%; margin-bottom:15px;">
-      <p>"Professionali e creativi, hanno trasformato la nostra idea in realtà."</p>
-      <strong>- Cliente felice</strong>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="parallax" style="background-image: url('immagini/contatti_bg.jpg');">
-  <h2>Contatti</h2>
-  <div class="contact">
-    <img src="immagini/contatti.jpg" alt="Contatti" style="width:100%; border-radius:12px; margin-bottom:20px;">
-    <form>
-      <input type="text" placeholder="Nome" required>
-      <input type="email" placeholder="Email" required>
-      <textarea rows="5" placeholder="Messaggio" required></textarea>
-      <button type="submit">Invia Messaggio</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  &copy; 2025 Agency Online. Tutti i diritti riservati.
-</footer>
-
-<script>
-  const sections = document.querySelectorAll('section');
-  const testimonials = document.querySelectorAll('.testimonial');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
-  }, { threshold: 0.2 });
-  sections.forEach(section => observer.observe(section));
-  testimonials.forEach(testimonial => observer.observe(testimonial));
-</script>
-
-</body>
-</html>
+  <!-- Contatti -->
+  <section id="contact" class="parallax" style="background-image: url('https://via.placeholder.com/1600x900?text=Contatti');">
+    <h2>Contatti</h2>
+    <div class="contact">
+      <form>
+        <input type="text" placeholder="Nome" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="5" placeholder="Messaggio" required></textarea>
+        <button type="submit">Invia Messaggio</button>
+      </form>
+    </div
+::contentReference[oaicite:0]{index=0}
+ 
